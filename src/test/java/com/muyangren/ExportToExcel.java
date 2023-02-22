@@ -3,8 +3,8 @@ package com.muyangren;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.params.ExcelExportEntity;
 import cn.afterturn.easypoi.excel.export.ExcelExportService;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,8 +21,8 @@ import java.util.Map;
  */
 public class ExportToExcel {
     public static void main(String[] args) throws IOException {
-        //1、创建一个Workbook
-        Workbook workbook = new HSSFWorkbook();
+        //1、创建一个Workbook（XSSFWorkbook）
+        Workbook workbook = new XSSFWorkbook();
         //2、导出sheet1
         exportSheetOne(workbook);
         //3、导出sheet2
@@ -42,7 +42,7 @@ public class ExportToExcel {
         }
         //2、填充数据集合
         List<Map<String, Object>> dataList = new ArrayList<>();
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 100; j++) {
             HashMap<String, Object> contentMap = new HashMap<>();
             for (int x = 0; x < 5; x++) {
                 contentMap.put(sortKey + x, "数据" + x);
@@ -88,8 +88,8 @@ public class ExportToExcel {
         //outputStream.close();
 
         //2、直接下载到本地(一般用于测试)
-        //注*：一定是【.xls】后缀
-        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\guangsheng\\Desktop\\导出测试用例.xls");
+        //注*：建议最好就是【.xlsx】后缀
+        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\guangsheng\\Desktop\\导出测试用例.xlsx");
         workbook.write(fileOutputStream);
         fileOutputStream.flush();
         fileOutputStream.close();

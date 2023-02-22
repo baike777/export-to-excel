@@ -18,6 +18,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * 处理文件工具
+ * @author guangsheng
  */
 public class FileUtils {
 
@@ -216,7 +217,7 @@ public class FileUtils {
         try {
             response.reset();
             response.setContentType("application/octet-stream; charset=utf-8");
-            response.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName,"utf8"));
+            response.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName,"utf-8"));
             outputStream = response.getOutputStream();
             workbook.write(outputStream);
             outputStream.flush();
@@ -299,16 +300,9 @@ public class FileUtils {
         String os = System.getProperty("os.name").toLowerCase();
         //windows下
         if (os.indexOf("windows")>=0) {
-            return "C://temp/";
+            return "C:\\Users\\guangsheng\\Desktop\\";
         }else{
             return "/usr/local/temp/";
         }
-    }
-
-    /**
-     * @return 资源下发模板专用路径
-     */
-    public static String getResourcesFilePath(){
-        return "document" + File.separator + "export" + File.separator + "distribute" + File.separator;
     }
 }
