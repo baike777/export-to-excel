@@ -64,7 +64,7 @@ public class ExportUtil {
              } else if (i == 1) {
                  //设置第二行的行高（表头）
                  row.setHeightInPoints(40);
-             } {
+             } else {
                  int lastCellNum = row.getLastCellNum();
                  for (int j = 0; j < lastCellNum; j++) {
                      //这里我们来实现下奇数填充红色、双数填充蓝色
@@ -72,7 +72,7 @@ public class ExportUtil {
                      if (j % 2 != 0) {
                          //奇数
                          CellStyle titleStyle = workbook.createCellStyle();
-                         titleStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
+                         titleStyle.setFillForegroundColor(IndexedColors.RED1.getIndex());
                          titleStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                          cell.setCellStyle(titleStyle);
                      } else {
@@ -80,6 +80,13 @@ public class ExportUtil {
                          CellStyle titleStyle = workbook.createCellStyle();
                          titleStyle.setFillForegroundColor(IndexedColors.BLUE1.getIndex());
                          titleStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+                         //加粗
+                         Font font = workbook.createFont();
+                         //字体样式
+                         font.setFontName("宋体");
+                         //是否加粗
+                         font.setBold(true);
+                         titleStyle.setFont(font);
                          cell.setCellStyle(titleStyle);
                      }
                  }
