@@ -25,7 +25,7 @@ public class SingleExportToExcel {
         //2.1、动态表头
         String sortKey = "colNum";
         for (int i = 0; i < 5; i++) {
-            resourceEntityList.add(new ExcelExportEntity("列头" + i, sortKey + i, 10));
+            resourceEntityList.add(new ExcelExportEntity("列头" + i, sortKey + i, 20));
         }
         //3、填充数据集合
         //3.1) 数据数组
@@ -41,7 +41,7 @@ public class SingleExportToExcel {
             dataList.add(contentMap);
         }
         //4、定义大标题
-        ExportParams ex = new ExportParams(title, null);
+        ExportParams ex = new ExportParams(title, "sheetOne");
         //导出工具
         ExportUtil.dynamicExport(title,resourceEntityList,ex,dataList,null,false);
     }

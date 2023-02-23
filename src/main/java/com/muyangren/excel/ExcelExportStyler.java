@@ -22,7 +22,7 @@ public class ExcelExportStyler extends ExcelExportStylerDefaultImpl {
         titleStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
         titleStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         //增加样式
-        titleStyle.setFont(getFont(workbook, (short) 20, true));
+        titleStyle.setFont(getFont(workbook, (short) 50, true));
         return titleStyle;
     }
 
@@ -33,7 +33,7 @@ public class ExcelExportStyler extends ExcelExportStylerDefaultImpl {
         CellStyle titleStyle = initCellStyle();
         titleStyle.setWrapText(true);
         //增加字体样式
-        titleStyle.setFont(getFont(workbook, (short) 14, true));
+        titleStyle.setFont(getFont(workbook, (short) 35, true));
         return titleStyle;
     }
 
