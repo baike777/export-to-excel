@@ -2,13 +2,11 @@ package com.muyangren;
 
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.params.ExcelExportEntity;
-import com.muyangren.utils.ExportUtil;
+import com.muyangren.excel.utils.ExportUtil;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author: muyangren
@@ -16,7 +14,7 @@ import java.util.Map;
  * @Description: 单sheet导出 配合 自定义样式
  * @Version: 1.0
  */
-public class SingleExportToExcel {
+public class SingleExportToExcelTest {
     public static void main(String[] args) {
         //1、填充标题
         String title ="标题";
@@ -41,7 +39,7 @@ public class SingleExportToExcel {
             dataList.add(contentMap);
         }
         //4、定义大标题
-        ExportParams ex = new ExportParams(title, "sheetOne");
+        ExportParams ex = new ExportParams(title, "sheet1");
         //导出工具
         ExportUtil.dynamicExport(title,resourceEntityList,ex,dataList,null,false);
     }
